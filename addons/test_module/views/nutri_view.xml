@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <!--Create Top Menu-->
+  <menuitem name="Diet Facts" id="custom_top_menu"/>
+  <!--Create Sub Child Menu-->
+  <menuitem name="Restaurants" id="rest_custom_sub_menu" parent="custom_top_menu"/>
+  <menuitem name="Brands" id="brand_custom_sub_menu" parent="custom_top_menu"/>
+  <!--Tree View-->
+  <record id="tree_custom_model" model="ir.ui.view">
+    <field name="name">nutri.model.tree</field>
+    <field name="model">nutri.model</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="serv_size"/>
+        <field name="cal"/>
+        <field name="total_fat"/>
+        <field name="satured_fat"/>
+        <field name="trans_fat"/>
+        <field name="poly_fat"/>
+        <field name="mono_fat"/>
+        <field name="cholest"/>
+        <field name="sodium"/>
+        <field name="potassium"/>
+        <field name="total_carb"/>
+        <field name="fiber"/>
+        <field name="sugar"/>
+        <field name="protein"/>
+        <field name="vit_a"/>
+        <field name="vit_c"/>
+        <field name="calcium"/>
+        <field name="iron"/>
+        <field name="phosp"/>
+        <field name="magne"/>
+        <field name="zinc"/>
+        <field name="copper"/>
+        <field name="un_pts"/>
+        <field name="final_fat"/>
+        <field name="final_carb"/>
+        <field name="final_protein"/>
+      </tree>
+    </field>
+  </record>
+  <!--Form View-->
+  <record id="form_custom_model" model="ir.ui.view">
+    <field name="name">nutri.model.form</field>
+    <field name="model">nutri.model</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="name" required='1'/>
+            <field name="serv_size" required='1'/>
+            <field name="cal"/>
+            <field name="total_fat"/>
+            <field name="satured_fat"/>
+            <field name="trans_fat"/>
+            <field name="poly_fat"/>
+            <field name="mono_fat"/>
+            <field name="cholest"/>
+            <field name="sodium"/>
+            <field name="potassium"/>
+            <field name="total_carb"/>
+            <field name="fiber"/>
+            <field name="sugar"/>
+            <field name="protein"/>
+            <field name="vit_a"/>
+            <field name="vit_c"/>
+            <field name="calcium"/>
+            <field name="iron"/>
+            <field name="phosp"/>
+            <field name="magne"/>
+            <field name="zinc"/>
+            <field name="copper"/>
+            <field name="un_pts"/>
+            <field name="final_fat"/>
+            <field name="final_carb"/>
+            <field name="final_protein"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <!--Define custom action-->
+  <record id="custom_action" model="ir.actions.act_window">
+    <field name="name">Product</field>
+    <field name="res_model">nutri.model</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type='html'>
+      <p class="oe_view_nocontent_create">
+        Click here to create new item !
+      </p>
+    </field>
+  </record>
+  <!--Create child menu / Action menu-->
+  <menuitem name="Restaurant" id="r_custom_child_menu" parent="rest_custom_sub_menu" action="custom_action"/>
+  <menuitem name="Brand" id="b_custom_child_menu" parent="brand_custom_sub_menu" action="custom_action"/>
+
+</odoo>
